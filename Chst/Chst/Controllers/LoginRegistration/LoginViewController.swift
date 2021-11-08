@@ -114,6 +114,10 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func loginButtonTapped () {
+        
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
         guard let email = emailField.text, let password = passwordField.text, !email.isEmpty, !password.isEmpty, password.count >= 6 else {
             alertUserLoginError()
             return
@@ -124,6 +128,7 @@ class LoginViewController: UIViewController {
     @objc func alertUserLoginError () {
         let alert = UIAlertController(title: "Error", message: "Please enter correct information to log in", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
     
     @objc private func didTapRegister () {

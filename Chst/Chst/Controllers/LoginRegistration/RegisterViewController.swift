@@ -107,7 +107,7 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Create new account"
-        view.backgroundColor = .green
+        view.backgroundColor = .white
         
         registerButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         

@@ -2,29 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow access to take a profile picture</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please allow access to select a profile picture</string>
-	<key>UIApplicationSceneManifest</key>
-	<dict>
-		<key>UIApplicationSupportsMultipleScenes</key>
-		<false/>
-		<key>UISceneConfigurations</key>
-		<dict>
-			<key>UIWindowSceneSessionRoleApplication</key>
-			<array>
-				<dict>
-					<key>UISceneConfigurationName</key>
-					<string>Default Configuration</string>
-					<key>UISceneDelegateClassName</key>
-					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
-				</dict>
-			</array>
-		</dict>
-	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -33,11 +10,19 @@
 				<string>fb304860648152526</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.705082894199-knpsm8iase7hk42q9pl5jcsvvlnk38jh</string>
+			</array>
+		</dict>
 	</array>
 	<key>FacebookAppID</key>
 	<string>304860648152526</string>
-    <key>FacebookClientToken</key>
-    <string>9d04b45bbfb0e4d122e49d100c8af800</string>
+	<key>FacebookClientToken</key>
+	<string>9d04b45bbfb0e4d122e49d100c8af800</string>
 	<key>FacebookDisplayName</key>
 	<string>ChatApp</string>
 	<key>LSApplicationQueriesSchemes</key>
@@ -58,5 +43,24 @@
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>

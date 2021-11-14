@@ -8,9 +8,10 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     func application(
         _ application: UIApplication,
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application,
             didFinishLaunchingWithOptions: launchOptions
         )
+        
+        GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance()?.delegate = self
 
         return true
     }
@@ -38,6 +42,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
+        
+        return GIDSignIn.sharedInstance().handle(url)
     }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        guard error == nil else {
+            if let error = error {
+                return print("Failed to log in with Google: \(error)")
+            }
+            return
+        }
+        
+        guard let user = user else {
+            return
+        }
+        
+        print("Signed in with Google: \(user)")
+        
+        guard let email = user.profile.email, let firstName = user.profile.givenName, let lastName = user.profile.familyName else {
+            return
+        }
+        
+        DatabaseManager.shared.userExists(with: email, completion: { exists in
+            if !exists {
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName, lastName: lastName, email: email))
+            }
+        })
+        
+        guard let authentification = user.authentication else {
+            print("Missing auth object of Google")
+            return
+        }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentification.idToken, accessToken: authentification.accessToken)
+        
+        FirebaseAuth.Auth.auth().signIn(with: credential, completion: { authResult, error in
+            guard authResult != nil, error == nil else {
+                return print("Failed to log in with Google credentials")
+            }
+            
+            print("Succesfully signed in with Google credentials")
+            NotificationCenter.default.post(name: .didLoginNotification, object: nil)
+        })
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        print("Google user was logged out")
+    }
+
+    //added return part to first url func in appdelegate
+//    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+//        return GIDSignIn.sharedInstance().handle(url, sourceApplication: sourceApplication, annotation: annotation)
+//    }
 }
     

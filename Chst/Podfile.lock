@@ -114,6 +114,7 @@ PODS:
   - InputBarAccessoryView (5.4.0):
     - InputBarAccessoryView/Core (= 5.4.0)
   - InputBarAccessoryView/Core (5.4.0)
+  - JGProgressHUD (2.2)
   - leveldb-library (1.22.1)
   - MessageKit (3.7.0):
     - InputBarAccessoryView (~> 5.4.0)
@@ -130,6 +131,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - GoogleSignIn (~> 5.0)
+  - JGProgressHUD
   - MessageKit
 
 SPEC REPOS:
@@ -152,6 +154,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - InputBarAccessoryView
+    - JGProgressHUD
     - leveldb-library
     - MessageKit
     - nanopb
@@ -176,11 +179,12 @@ SPEC CHECKSUMS:
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
   InputBarAccessoryView: 74d471ab1fa1736806be50328df79257e52865a9
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 7363b3601d8328d5b63bbcb2f2c4c08a13afc812
+PODFILE CHECKSUM: 9202e331227b971955e37ab5363b8658b72d5b78
 
 COCOAPODS: 1.10.1

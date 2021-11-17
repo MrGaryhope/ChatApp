@@ -16,4 +16,5 @@ target 'Chst' do
   pod 'GoogleSignIn', '~> 5.0'
   
   pod 'MessageKit'
+  pod 'JGProgressHUD'
 end

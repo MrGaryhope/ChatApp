@@ -15,9 +15,4 @@ target 'Chst' do
   #Google
   pod 'GoogleSignIn', '~> 5.0'
   
-  pod 'MessageKit'
-  pod 'JGProgressHUD'
-  pod 'RealmSwift'
-  pod 'SDWebImage'
-  
 end

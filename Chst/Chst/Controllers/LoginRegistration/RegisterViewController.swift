@@ -7,8 +7,11 @@
 
 import UIKit
 import FirebaseAuth
+import JGProgressHUD
 
 class RegisterViewController: UIViewController {
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -109,7 +112,7 @@ class RegisterViewController: UIViewController {
         title = "Create new account"
         view.backgroundColor = .white
         
-        registerButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
         emailField.delegate = self
         passwordField .delegate = self
@@ -172,7 +175,7 @@ class RegisterViewController: UIViewController {
         presentPhotoActionSheet()
     }
     
-    @objc private func loginButtonTapped () {
+    @objc private func registerButtonTapped () {
         
         firstNameField.resignFirstResponder()
         LastNameField.resignFirstResponder()
@@ -192,7 +195,9 @@ class RegisterViewController: UIViewController {
                   return
               }
         
-        //Firebase login
+        spinner.show(in: view, animated: true)
+        
+        //Firebase register
         
         DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
 
@@ -200,6 +205,10 @@ class RegisterViewController: UIViewController {
                 return
             }
 
+            DispatchQueue.main.async {
+                strongSelf.spinner.dismiss(animated: true)
+            }
+            
             guard !exists else {
                 //user already exists
                 strongSelf.alertUserLoginError(message: "Looks like a user account for this email already exists")
@@ -231,7 +240,7 @@ extension RegisterViewController: UITextFieldDelegate {
         if textField == emailField {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
-            loginButtonTapped()
+            registerButtonTapped()
         }
         
         return true

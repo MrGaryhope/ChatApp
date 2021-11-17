@@ -15,4 +15,5 @@ target 'Chst' do
   #Google
   pod 'GoogleSignIn', '~> 5.0'
   
+  pod 'MessageKit'
 end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1909EFC0AC5C54E3778219D2 /* Pods_Chst.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7F381B5F753D972A48F2BDD /* Pods_Chst.framework */; };
 		9D0DA5432745ADA000D03DB8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DA5422745ADA000D03DB8 /* ChatViewController.swift */; };
+		9D0DA5452745B67500D03DB8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0DA5442745B67500D03DB8 /* StorageManager.swift */; };
 		9D7AF125273B240500757542 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9D7AF124273B240500757542 /* GoogleService-Info.plist */; };
 		9D7AF127273B2E7600757542 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7AF126273B2E7600757542 /* DatabaseManager.swift */; };
 		9DAB34F627380C180089A020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB34F527380C180089A020 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 		180E5F5149094DD3518FD613 /* Pods-Chst.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chst.release.xcconfig"; path = "Target Support Files/Pods-Chst/Pods-Chst.release.xcconfig"; sourceTree = "<group>"; };
 		1A50CA89BBE84C0E17C006A3 /* Pods-Chst.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chst.debug.xcconfig"; path = "Target Support Files/Pods-Chst/Pods-Chst.debug.xcconfig"; sourceTree = "<group>"; };
 		9D0DA5422745ADA000D03DB8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		9D0DA5442745B67500D03DB8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		9D7AF124273B240500757542 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9D7AF126273B2E7600757542 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		9DAB34F227380C180089A020 /* Chst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chst.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +139,7 @@
 				9DAB34F727380C180089A020 /* SceneDelegate.swift */,
 				9DAB351C27387C2A0089A020 /* Extensions.swift */,
 				9D7AF126273B2E7600757542 /* DatabaseManager.swift */,
+				9D0DA5442745B67500D03DB8 /* StorageManager.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				9DAB34F827380C180089A020 /* SceneDelegate.swift in Sources */,
 				9D0DA5432745ADA000D03DB8 /* ChatViewController.swift in Sources */,
 				9DAB35142738524F0089A020 /* PhotoViewerViewController.swift in Sources */,
+				9D0DA5452745B67500D03DB8 /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

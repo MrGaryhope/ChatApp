@@ -124,6 +124,11 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
+  - Realm (10.19.0):
+    - Realm/Headers (= 10.19.0)
+  - Realm/Headers (10.19.0)
+  - RealmSwift (10.19.0):
+    - Realm (= 10.19.0)
 
 DEPENDENCIES:
   - FBSDKLoginKit
@@ -133,6 +138,7 @@ DEPENDENCIES:
   - GoogleSignIn (~> 5.0)
   - JGProgressHUD
   - MessageKit
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
@@ -159,6 +165,8 @@ SPEC REPOS:
     - MessageKit
     - nanopb
     - PromisesObjC
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -184,7 +192,9 @@ SPEC CHECKSUMS:
   MessageKit: 8e76dd8d65ad44b49e1651c673497146416461e9
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  Realm: 869ab2a7e3bdfa6bf06d8723251539f504e6f602
+  RealmSwift: f1f51c4a02fe826e5cea623b5441992f06bdc942
 
-PODFILE CHECKSUM: 9202e331227b971955e37ab5363b8658b72d5b78
+PODFILE CHECKSUM: be7df607919f8f9fc54587324d88866fb4dcb9db
 
 COCOAPODS: 1.10.1

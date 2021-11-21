@@ -191,11 +191,13 @@ class LoginViewController: UIViewController {
             let user = result.user
             print("Logged in user: \(user )")
             
+            UserDefaults.standard.set(email, forKey: "email")
+            
             strongSelf.navigationController?.dismiss(animated: true, completion: nil)
         })
     }
     
-    @objc func alertUserLoginError () {
+    func alertUserLoginError () {
         let alert = UIAlertController(title: "Error", message: "Please enter correct information to log in", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
         present(alert, animated: true)
@@ -252,6 +254,8 @@ extension LoginViewController: LoginButtonDelegate {
                   let pictureURL = data["url"] as? String else {
                       return print("Failed to get email and userName from FB request")
                   }
+            
+            UserDefaults.standard.set(email, forKey: "email")
             
             DatabaseManager.shared.userExists(with: email, completion: { exists in
                 if !exists {

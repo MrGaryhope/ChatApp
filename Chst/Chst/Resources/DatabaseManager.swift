@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseDatabase
+import MessageKit
 
 final class DatabaseManager {
     
@@ -18,6 +19,11 @@ final class DatabaseManager {
         var safeEmail = email.replacingOccurrences(of: ".", with: "-")
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
+    }
+    
+    static func safeDate(with date: String) -> String {
+        let safeDate = date.replacingOccurrences(of: ".", with: "")
+        return safeDate
     }
 }
 
@@ -345,8 +351,24 @@ extension DatabaseManager {
                           return nil
                       }
                 
+                var kind: MessageKind?
+                if type == "photo" {
+                    guard let imageUrl = URL(string: content),
+                        let placeHolder = UIImage(systemName: "plus") else {
+                        return nil
+                    }
+                    let media = Media(url: imageUrl, image: nil, placeholderImage: placeHolder, size: CGSize(width: 300, height: 300))
+                    kind = .photo(media)
+                } else {
+                    kind = .text(content)
+                }
+                
+                guard let finalKind = kind else {
+                    return nil
+                }
+                
                 let sender = Sender(photoURL: "", senderId: senderEmail, displayName: name)
-                return Message(sender: sender, messageId: messageID, sentDate: date, kind: .text(content))
+                return Message(sender: sender, messageId: messageID, sentDate: date, kind: finalKind)
             })
             completion(.success(messages))
         })
@@ -385,8 +407,10 @@ extension DatabaseManager {
                 message = messageText
             case .attributedText(_):
                 break
-            case .photo(_):
-                break
+            case .photo(let mediaItem):
+                if let targetUrlString = mediaItem.url?.absoluteString {
+                    message = targetUrlString
+                }
             case .video(_):
                 break
             case .location(_):

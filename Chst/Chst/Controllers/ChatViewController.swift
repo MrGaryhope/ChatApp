@@ -275,8 +275,7 @@ extension ChatViewController: InputBarAccessoryViewDelegate {
         let safeCurrentEmail = DatabaseManager.safeEmail(with: currentUserEmail)
         
         let dateString = Self.dateFormatter.string(from: Date())
-        let safeDate = DatabaseManager.safeDate(with: dateString)
-        let newID = "\(safeCurrentEmail)_\(otherUserEmail)_\(safeDate)"
+        let newID = "\(safeCurrentEmail)_\(otherUserEmail)_\(dateString)"
         print("Create new message ID: \(newID)")
         return newID
     }

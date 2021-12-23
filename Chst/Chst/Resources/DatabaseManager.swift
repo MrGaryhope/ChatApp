@@ -20,11 +20,6 @@ final class DatabaseManager {
         safeEmail = safeEmail.replacingOccurrences(of: "@", with: "-")
         return safeEmail
     }
-    
-    static func safeDate(with date: String) -> String {
-        let safeDate = date.replacingOccurrences(of: ".", with: "")
-        return safeDate
-    }
 }
 
 extension DatabaseManager {
